@@ -52,12 +52,13 @@ function generatePassword(){
   }
   if (passwordOptions.includeSpecial === true){
     possibleCharacters = possibleCharacters.concat(specialChar)
-  } 
+  }
+  var possibleCharStr = possibleCharacters.join(""); 
   password = "";
   for (var i = 0, n = possibleCharacters.length; i < passwordOptions.passwordLength; i++){
-    password += possibleCharacters.indexOf(Math.random() * n);
+    password += possibleCharStr.charAt(Math.floor(Math.random() * n));
   }
-  console.log(password);
+  return password;
 }
 
 
